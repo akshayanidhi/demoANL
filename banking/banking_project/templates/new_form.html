@@ -1,0 +1,185 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="view-port" content="width=device-width",initial-scale="1">
+    <title>Form</title>
+</head>
+<body style="background-color:black;">
+<div class="form">
+
+    <form action="credential/logout" class="form-container">
+
+     {% csrf_token %}
+
+      <table border="0px" align="center" style="background-color:yellow; padding:20px;">
+        <th><h2 style="color:blue;padding-left:140px;">Fill up the form</h2></th>
+        <tr>
+            <td><b><label>Name:</label></b></td>
+            <td><input type="text"></td>
+        </tr>
+        <tr>
+            <td><b><label>Age:</label></b></td>
+            <td><input type="text"></td>
+        </tr>
+        <tr>
+            <td><b><label>Date of birth:</label></b></td>
+            <td><input type="date"></td>
+        </tr>
+        <tr>
+            <td><b><label>Gender:</label></b></td>
+            <td><input type="radio">Male
+            <input type="radio">Female</td>
+
+        </tr>
+        <tr>
+            <td><b><label>Phone number:</label></b></td>
+            <td><input type="text"></td>
+        </tr>
+        <tr>
+            <td><b><label>Email ID:</label></b></td>
+            <td><input type="email"></td>
+        </tr>
+        <tr>
+            <td><b><label>Address:</label></b></td>
+            <td><input type="text"></td>
+        </tr>
+
+
+
+<!dependent-dropdown-->
+<!--<tr><td><b><label>District:</label></b></td>
+
+ <td>  <select name="district" id="district" class="district">
+       <option>District</option>
+            <option value="tsr" data-target="tsr" id="tsr">Thrissur</option>
+            <option value="ekm" data-target="ekm" id="ekm">Ernakulam</option>
+            <option value="pkd" data-target="pkd" id="pkd">Palakkad</option>
+            <option value="clt" data-target="clt" id="clt">Calicut</option>
+            <option value="tvm" data-target="tvm" id="tvm">Trivandrum</option>
+    </select>
+</td>
+
+<tr>
+<td><b><label>Branch:</label></b></td>
+   <td> <select name="branch" id="district-branch" class="branch">
+   <div style="display:none" id="district-branches">
+
+    <div id="Thrissur-branches">
+        <select name="tsr" id="tsrbr" class="tsr">
+            <option value="ckdy" id="ckdy">Chalakudy</option>
+            <option value="ijk" id="ijk">Irinjalakuda</option>
+        </select></div>
+    <div id="Ernakulam-branches">
+        <select name="ekm" id="ekmbr" class="ekm">
+            <option value="alva" id="alva">Aluva</option>
+            <option value="Edply" id="Edply">Edappally</option>
+        </select></div>
+    <div id="Palakkad-branches">
+        <select name="pkd" id="pkdbr" class="pkd">
+            <option value="Chtr" id="Chtr">Chittur</option>
+            <option value="Ptmb" id="Ptmb">Pattambi</option>
+        </select></div>
+    <div id="Calicut-branches">
+        <select name="clt" id="cltbr" class="clt">
+            <option value="klndy" id="klndy">Koyilandy</option>
+            <option value="vdkr" id="vdkr">Vadakara</option>
+        </select></div>
+
+    <div id="Trivandrum-branches">
+        <select name="tvm" id="tvmbr" class="tvm">
+            <option value="vrkla" id="vrkla">Varkkala</option>
+            <option value="ktkd" id="ktkd">Kattakada</option>
+        </select></div>
+
+    </select>
+    </td>
+</tr>-->
+
+
+
+<!--model-->
+          <tr>
+              <td>
+                 <b>Districts:</b><select name="district" id="district">
+                  <option value="district" selected="selected">select district</option>
+                    <option value="tsr" data-target="tsr" id="tsr">Thrissur</option>
+                    <option value="ekm" data-target="ekm" id="ekm">Ernakulam</option>
+                    <option value="pkd" data-target="pkd" id="pkd">Palakkad</option>
+                    <option value="clt" data-target="clt" id="clt">Calicut</option>
+                    <option value="tvm" data-target="tvm" id="tvm">Trivandrum</option>
+              </select>
+              </td>
+                  <br><br>
+              <td>
+                  <b>Branch:</b><select name="branch" id="branch">
+                  <option value="district" selected="selected">select branch</option>
+                  <option value="tsr" id="ckdy">Chalakudy</option>
+                    <option value="tsr" id="ijk">Irinjalakuda</option>
+                    <option value="ekm" id="alva">Aluva</option>
+                    <option value="ekm" id="Edply">Edappally</option>
+                    <option value="pkd" id="Chtr">Chittur</option>
+                    <option value="Pkd" id="Ptmb">Pattambi</option>
+                    <option value="clt" id="klndy">Koyilandy</option>
+                    <option value="clt" id="vdkr">Vadakara</option>
+                    <option value="tvm" id="vrkla">Varkkala</option>
+                    <option value="tvm" id="ktkd">Kattakada</option>
+              </select>
+              </td>
+          </tr>
+
+<!--model-->
+
+
+          <tr>
+            <td><b><label for="Account type">Account type:</label></b></td>
+            <td>
+                <select name="Account type" id="Account type">
+                <option value=""> Account Type</option>
+                <option value="Saving">Saving Account</option>
+                <option value="Current">Current Account</option>
+                <option value="Deposit">Fixed Deposit</option>
+                </select>
+            </td>
+        </tr>
+
+          <tr>
+            <td><b><label>Materials provide:</label></b></td>
+            <td><input type="checkbox" id="debit" name="Debit card" value="debit">
+            <label > Debit card</label>
+            <input type="checkbox" id="Credit" name="Credit card" value="Credit">
+            <label > Credit card</label>
+            <input type="checkbox" id="Cheque" name="Cheque book" value="Cheque">
+            <label > Cheque book</label></td>
+        </tr>
+
+          <tr><td><button onclick="alert('Application is accepted')" type="Submit" class="btn" ><a href="#">Submit</a></button>
+        <button type="button" class="btn logout"><a href="">Logout</a></button>
+          </td></tr>
+    </table>
+  </form>
+</div>
+
+
+</div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+<!--<script>
+    $("#submit").click(function()(
+    alert('Application accepted'))
+</script>-->
+</html>
